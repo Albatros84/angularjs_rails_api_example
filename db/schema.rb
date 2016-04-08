@@ -11,6 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160408092741) do
+
+  create_table "conditions", force: true do |t|
+    t.string   "cui"
+    t.string   "label"
+    t.text     "synonyms"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conditions", ["cui"], name: "index_conditions_on_cui", unique: true
+  add_index "conditions", ["label"], name: "index_conditions_on_label", unique: true
+  add_index "conditions", ["synonyms"], name: "index_conditions_on_synonyms"
 
 end
